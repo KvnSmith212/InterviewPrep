@@ -8,7 +8,9 @@ other relevant materials will each contain their own readmes for notes and learn
 -> Leetcode 75
     -> Array
 -> CTCI
-    ->
+    -> Arrays and Strings
+        -> Chapter Notes
+        -> Questions
 ```
 
 ### Leetcode 75
