@@ -25,12 +25,26 @@ public class SinglyLinkedList {
      * @return data.
      */
     public Integer get(int index) {
+        return getNode(index).data;
+    }
+
+    /**
+     * Retrieves the node at the given index.
+     * @param index
+     * @return node.
+     */
+    public Node getNode(int index) {
         if (index < 0) {
             throw new RuntimeException("Index can not be less than 0.");
         }
 
         int i = 0;
         Node curr = head;
+
+        if (curr == null) {
+            throw new RuntimeException("Index is out of bounds!");
+        }
+
         while (i != index) {
             if (curr == null) {
                 throw new RuntimeException("Index is out of bounds!");
@@ -39,7 +53,7 @@ public class SinglyLinkedList {
             curr = curr.next;
         }
 
-        return curr.data;
+        return curr;
     }
 
     /**
@@ -60,8 +74,18 @@ public class SinglyLinkedList {
         SinglyLinkedList other = (SinglyLinkedList) o;
         int i = 0;
         Node curr = head;
+
+        if (curr == null) {
+            return other.getHead() == null;
+        }
+
         while (curr != null) {
-            if (!curr.data.equals(other.get(i))) {
+            // I just want to reiterate that this is meant to be quick and dirty and is not a solution to a problem...
+            try {
+                if (!curr.data.equals(other.get(i))) {
+                    return false;
+                }
+            } catch (RuntimeException e) {
                 return false;
             }
             curr = curr.next;
