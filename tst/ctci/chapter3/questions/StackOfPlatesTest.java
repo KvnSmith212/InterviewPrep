@@ -1,8 +1,7 @@
-package ctci.chatper3.questions;
+package ctci.chapter3.questions;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.NoSuchElementException;
 import java.util.Stack;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package ctci.chatper3.questions;
+package ctci.chapter3.questions;
 
 import java.util.ArrayList;
 import java.util.Stack;
