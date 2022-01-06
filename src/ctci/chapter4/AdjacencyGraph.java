@@ -13,7 +13,7 @@ public class AdjacencyGraph {
      * Hashmap allows constant lookup between of nodes in the graph.
      * Hashset allows constant lookup between a node and its children.
      */
-    private Map<Node, HashSet<Node>> adjacencyMap;
+    private Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> adjacencyMap;
 
     public AdjacencyGraph() {
         adjacencyMap = new HashMap<>();
@@ -26,7 +26,7 @@ public class AdjacencyGraph {
      * @param b
      * @param biDirectional indicates whether the edge is one way, or bidirectional.
      */
-    public void add(Node a, Node b, boolean biDirectional) {
+    public void add(AdjacencyGraphNode a, AdjacencyGraphNode b, boolean biDirectional) {
         addDirectionalEdge(a, b);
 
         if (biDirectional) {
@@ -35,8 +35,8 @@ public class AdjacencyGraph {
     }
 
     // Add a single direction edge between two nodes.
-    private void addDirectionalEdge(Node a, Node b) {
-        HashSet<Node> children = adjacencyMap.get(a) == null ? new HashSet<>() : adjacencyMap.get(a);
+    private void addDirectionalEdge(AdjacencyGraphNode a, AdjacencyGraphNode b) {
+        HashSet<AdjacencyGraphNode> children = adjacencyMap.get(a) == null ? new HashSet<>() : adjacencyMap.get(a);
         children.add(b);
         adjacencyMap.put(a, children);
     }
@@ -46,7 +46,7 @@ public class AdjacencyGraph {
      * @param node
      * @return
      */
-    public HashSet<Node> getChildren(Node node) {
+    public HashSet<AdjacencyGraphNode> getChildren(AdjacencyGraphNode node) {
         return adjacencyMap.get(node);
     }
 
@@ -54,7 +54,7 @@ public class AdjacencyGraph {
      * Wouldn't normally expose this but doing so here for the sake of testing and equals method.
      * @return
      */
-    public Map<Node, HashSet<Node>> getAdjacencyMap() {
+    public Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> getAdjacencyMap() {
         return adjacencyMap;
     }
 

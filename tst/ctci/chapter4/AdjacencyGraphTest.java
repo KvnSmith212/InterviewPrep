@@ -17,13 +17,13 @@ class AdjacencyGraphTest {
     void add_noSubgraph() {
         AdjacencyGraph testGraph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         // Setup the expected graph using adjacency map directly.
-        Map<Node, HashSet<Node>> expectedMap = new HashMap<>();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMap = new HashMap<>();
         expectedMap.put(a, Stream.of(b, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMap.put(b, Stream.of(a, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMap.put(c, Stream.of(b, a, d).collect(Collectors.toCollection(HashSet::new)));
@@ -47,13 +47,13 @@ class AdjacencyGraphTest {
     void add_withSubgraphs() {
         AdjacencyGraph testGraph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         // Setup the expected graph using adjacency map directly.
-        Map<Node, HashSet<Node>> expectedMap = new HashMap<>();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMap = new HashMap<>();
         expectedMap.put(a, Stream.of(b).collect(Collectors.toCollection(HashSet::new)));
         expectedMap.put(b, Stream.of(a).collect(Collectors.toCollection(HashSet::new)));
         expectedMap.put(c, Stream.of(d).collect(Collectors.toCollection(HashSet::new)));
@@ -71,11 +71,11 @@ class AdjacencyGraphTest {
     void add_duplicateAdds() {
         AdjacencyGraph testGraph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
 
         // Setup the expected graph using adjacency map directly.
-        Map<Node, HashSet<Node>> expectedMap = new HashMap<>();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMap = new HashMap<>();
         expectedMap.put(a, Stream.of(b).collect(Collectors.toCollection(HashSet::new)));
         expectedMap.put(b, Stream.of(a).collect(Collectors.toCollection(HashSet::new)));
 
@@ -93,13 +93,13 @@ class AdjacencyGraphTest {
     void getChildren() {
         AdjacencyGraph graph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         // Setup the expected graph using adjacency map directly.
-        Map<Node, HashSet<Node>> expectedMap = graph.getAdjacencyMap();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMap = graph.getAdjacencyMap();
         expectedMap.put(a, Stream.of(b, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMap.put(b, Stream.of(a, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMap.put(c, Stream.of(b, a, d).collect(Collectors.toCollection(HashSet::new)));
@@ -117,20 +117,20 @@ class AdjacencyGraphTest {
         AdjacencyGraph graphOne = new AdjacencyGraph();
         AdjacencyGraph graphTwo = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         // Setup the test graph one.
-        Map<Node, HashSet<Node>> expectedMapOne = graphOne.getAdjacencyMap();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMapOne = graphOne.getAdjacencyMap();
         expectedMapOne.put(a, Stream.of(b, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapOne.put(b, Stream.of(a, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapOne.put(c, Stream.of(b, a, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapOne.put(d, Stream.of(b, c, a).collect(Collectors.toCollection(HashSet::new)));
 
         // Setup the test graph two.
-        Map<Node, HashSet<Node>> expectedMapTwo = graphTwo.getAdjacencyMap();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMapTwo = graphTwo.getAdjacencyMap();
         expectedMapTwo.put(a, Stream.of(b, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapTwo.put(b, Stream.of(a, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapTwo.put(c, Stream.of(b, a, d).collect(Collectors.toCollection(HashSet::new)));
@@ -144,20 +144,20 @@ class AdjacencyGraphTest {
         AdjacencyGraph graphOne = new AdjacencyGraph();
         AdjacencyGraph graphTwo = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         // Setup the test graph one.
-        Map<Node, HashSet<Node>> expectedMapOne = graphOne.getAdjacencyMap();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMapOne = graphOne.getAdjacencyMap();
         expectedMapOne.put(a, Stream.of(b, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapOne.put(b, Stream.of(a, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapOne.put(c, Stream.of(b, a, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapOne.put(d, Stream.of(b, c, a).collect(Collectors.toCollection(HashSet::new)));
 
         // Setup the test graph two.
-        Map<Node, HashSet<Node>> expectedMapTwo = graphTwo.getAdjacencyMap();
+        Map<AdjacencyGraphNode, HashSet<AdjacencyGraphNode>> expectedMapTwo = graphTwo.getAdjacencyMap();
         expectedMapTwo.put(a, Stream.of(b, c, d).collect(Collectors.toCollection(HashSet::new)));
         expectedMapTwo.put(b, Stream.of(a, c, d).collect(Collectors.toCollection(HashSet::new)));
 

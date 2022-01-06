@@ -1,14 +1,8 @@
 package ctci.chapter4.questions;
 
 import ctci.chapter4.AdjacencyGraph;
-import ctci.chapter4.Node;
+import ctci.chapter4.AdjacencyGraphNode;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,10 +13,10 @@ class RouteBetweenNodesTest {
         RouteBetweenNodes routeBetweenNodes = new RouteBetweenNodes();
         AdjacencyGraph testGraph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         testGraph.add(a, b, true);
         testGraph.add(a, c, true);
@@ -36,11 +30,11 @@ class RouteBetweenNodesTest {
         RouteBetweenNodes routeBetweenNodes = new RouteBetweenNodes();
         AdjacencyGraph testGraph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c_1 = new Node();
-        Node c_2 = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c_1 = new AdjacencyGraphNode();
+        AdjacencyGraphNode c_2 = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         testGraph.add(a, b, true);
         testGraph.add(a, c_1, true);
@@ -54,10 +48,10 @@ class RouteBetweenNodesTest {
         RouteBetweenNodes routeBetweenNodes = new RouteBetweenNodes();
         AdjacencyGraph testGraph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         testGraph.add(b, c, true);
         testGraph.add(c, d, true);
@@ -70,10 +64,10 @@ class RouteBetweenNodesTest {
         RouteBetweenNodes routeBetweenNodes = new RouteBetweenNodes();
         AdjacencyGraph testGraph = new AdjacencyGraph();
 
-        Node a = new Node();
-        Node b = new Node();
-        Node c = new Node();
-        Node d = new Node();
+        AdjacencyGraphNode a = new AdjacencyGraphNode();
+        AdjacencyGraphNode b = new AdjacencyGraphNode();
+        AdjacencyGraphNode c = new AdjacencyGraphNode();
+        AdjacencyGraphNode d = new AdjacencyGraphNode();
 
         testGraph.add(a, b, true);
         testGraph.add(a, c, true);

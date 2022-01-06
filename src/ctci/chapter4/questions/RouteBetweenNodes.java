@@ -1,7 +1,7 @@
 package ctci.chapter4.questions;
 
 import ctci.chapter4.AdjacencyGraph;
-import ctci.chapter4.Node;
+import ctci.chapter4.AdjacencyGraphNode;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -20,11 +20,11 @@ public class RouteBetweenNodes {
      * @param e
      * @return true if there is a route, false otherwise. Does NOT return the route.
      */
-    public boolean routeBetween(AdjacencyGraph graph, Node s, Node e) {
+    public boolean routeBetween(AdjacencyGraph graph, AdjacencyGraphNode s, AdjacencyGraphNode e) {
         // Keep track of the nodes we have seen before in order to avoid endless cycles.
-        HashSet<Node> visited = new HashSet<>();
+        HashSet<AdjacencyGraphNode> visited = new HashSet<>();
         // Keep the children to visit in a queue for BFS implementation.
-        Queue<Node> childrenToVisit = new LinkedList<>();
+        Queue<AdjacencyGraphNode> childrenToVisit = new LinkedList<>();
 
         // Check to make sure the first node is actually in the graph, otherwise we will get a null pointer later.
         if (graph.getChildren(s) == null) {
@@ -33,7 +33,7 @@ public class RouteBetweenNodes {
 
         childrenToVisit.add(s);
         while (!childrenToVisit.isEmpty()) {
-            Node curr = childrenToVisit.poll();
+            AdjacencyGraphNode curr = childrenToVisit.poll();
 
             // We've found the magical path.
             if (curr.equals(e)) {
@@ -42,7 +42,7 @@ public class RouteBetweenNodes {
 
             // Add the children to be visited, ensuring not to add already visited children.
             visited.add(curr);
-            for (Node child: graph.getChildren(curr)) {
+            for (AdjacencyGraphNode child: graph.getChildren(curr)) {
                 if (!visited.contains(child)) {
                     childrenToVisit.add(child);
                 }
