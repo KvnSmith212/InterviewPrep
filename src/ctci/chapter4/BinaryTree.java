@@ -10,6 +10,10 @@ public class BinaryTree {
         this.root = root;
     }
 
+    public BinaryTreeNode getRoot() {
+        return root;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this) {
